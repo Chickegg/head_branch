@@ -20,7 +20,6 @@ jobs:
         run: |
           echo "New Labels"
 
-          echo "${{toJson(github)}}"
           echo "${{github.ref}}"
           echo "${{github.head_ref}}"
           echo "${{github.base_ref}}"
