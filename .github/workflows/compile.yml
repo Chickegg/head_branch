@@ -1,0 +1,29 @@
+name: "Compile .ts into .js"
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - labeled
+      - unlabeled
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Branch
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # all branches
+
+          # label이 특정 라벨이 붙으면 commit을 하고 mrege를 해준다.
+      - name: Print Label
+        run: ""
+
+      - name: pull branch
+        run: |
+          echo "Label changed pull reqeust"
+          echo "New Label"
+          echo "${{github.event.label.name}}"
+        # git checkout -t origin/"${{ github.head_ref}}"
