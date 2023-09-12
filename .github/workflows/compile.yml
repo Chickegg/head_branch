@@ -24,6 +24,6 @@ jobs:
       - name: pull branch
         run: |
           echo "Label changed pull reqeust"
-          echo "New Label"
+          echo "New Labels"
           echo "${{github.event.label.name}}"
         # git checkout -t origin/"${{ github.head_ref}}"
