@@ -35,8 +35,7 @@ jobs:
 
       - name: Pass If Git Add, Commit, Push
         run: |
-          git add .
-
+          git add dist
           if [ "$(git diff --cached --name--only)" ]; then
             echo "Staged changes detected. Committing and pushing..."
             git commit -m "chore: pre-merged compile .ts"
