@@ -23,15 +23,18 @@ jobs:
           echo "New Labels"
           echo "${{github.event.label.name}}"
 
-      - name: Compile .ts into js
-        run: npx tsc
-
       - name: Check Staged File and Commit Pushing
         run: |
+          git branch
           git checkout -t origin/"${{ github.head_ref}}"
           git config --global user.email ${{ github.event.sender.email}}
           git config --global user.name ${{ github.event.sender.name}}
 
+      - name: Compile .ts
+        run: npx tsc
+
+      - name: Pass If Git Add, Commit, Push
+        run: |
           git add .
 
           if [ "$(git diff --cached --name--only)" ]; then
