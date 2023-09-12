@@ -21,7 +21,8 @@ jobs:
         run: |
           echo "New Labels"
           echo "${{github.event.label.name}}"
-          echo "${{github.event.sender}}"
+          echo "${{toJson(github.event.sender)}}"
+          echo "${{toJson(github.actor)}}"
       - name: install typescript
         run: npm install typescript
 
