@@ -21,9 +21,9 @@ jobs:
           echo "New Labels"
 
           echo "${{toJson(github)}}"
-          echo "${{github.event.label.name}}"
-          echo "${{toJson(github.event.sender.id)}}"
-          echo "${{toJson(github.actor)}}"
+          echo "${{github.ref}}"
+          echo "${{github.head_ref}}"
+          echo "${{github.base_ref}}"
       - name: install typescript
         run: npm install typescript
 
@@ -65,3 +65,4 @@ jobs:
 # else
 #   echo "No staged status file"
 # fi
+
