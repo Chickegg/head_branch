@@ -6,7 +6,6 @@ on:
       - main
     types:
       - labeled
-      - unlabeled
 jobs:
   compile:
     if: ${{ github.event.label.name == 'compile'}}
