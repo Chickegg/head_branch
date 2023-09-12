@@ -27,8 +27,8 @@ jobs:
         run: |
           git branch
           git checkout -t origin/"${{ github.head_ref}}"
-          git config --global user.email ${{ github.event.sender.email}}
-          git config --global user.name ${{ github.event.sender.name}}
+          git config --global user.email "${{ github.event.sender.email}}"
+          git config --global user.name "${{ github.event.sender.name}}"
 
       - name: Compile .ts
         run: npx tsc
