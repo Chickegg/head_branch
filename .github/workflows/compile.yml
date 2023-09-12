@@ -36,6 +36,7 @@ jobs:
           git branch
           git config --global user.email "${{ github.actor}}@github.bot"
           git config --global user.name "${{ github.actor}}"
+          git fetch origin "${{ github.ref }}"
 
           npx tsc
           git add .
