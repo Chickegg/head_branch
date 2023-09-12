@@ -34,8 +34,8 @@ jobs:
       - name: Pass If Git Add, Commit, Push
         run: |
           git branch
-          git config --global user.email "${{ github.event.sender.email}}"
-          git config --global user.name "${{ github.event.sender.name}}"
+          git config --global user.email "${{ github.actor}}@github.bot"
+          git config --global user.name "${{ github.actor}}"
 
           npx tsc
           git add .
