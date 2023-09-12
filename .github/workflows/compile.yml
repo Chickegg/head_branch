@@ -31,6 +31,8 @@ jobs:
 
       # - name: Compile .ts
       #   run: npx tsc
+      - name: install typescript
+        run: npm install typescript
 
       - name: Pass If Git Add, Commit, Push
         run: |
