@@ -21,11 +21,10 @@ jobs:
       - name: Print Label
         run: |
           echo "New Labels"
-          echo "${{toJson(github.event)}}"
-          echo "${{toJson(github.event.head)}}"
-          echo "${{github.event.label.name}}"
-          echo "${{toJson(github.event.sender.id)}}"
-          echo "${{toJson(github.actor)}}"
+          echo "${{toJson(github.event.pull_request.head.repo.clone_url)}}"
+        # echo "${{github.event.label.name}}"
+        # echo "${{toJson(github.event.sender.id)}}"
+        # echo "${{toJson(github.actor)}}"
 
       # - name: install typescript
       #   run: npm install typescript
