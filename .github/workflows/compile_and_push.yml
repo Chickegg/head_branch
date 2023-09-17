@@ -34,6 +34,8 @@ jobs:
         run: npm install typescript
 
       - name: Pass If Git Add, Commit, Push
+        env:
+          MY_TOKEN: ${{ secrets.MY_TOKEN }}
         run: |
           git branch
           git config --global user.email "${{ github.actor }}@github.bot"
