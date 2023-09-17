@@ -43,7 +43,7 @@ jobs:
           if [ "$(git diff --cached --name-only)" ]; then
             echo "Staged changes detected. Committing and pushing..."
             git commit -m "chore: pre-merged compile .ts"
-            git push origin main
+            git push forked main
           else
             echo "No staged status file"
           fi
