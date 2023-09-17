@@ -26,24 +26,24 @@ jobs:
         # echo "${{toJson(github.event.sender.id)}}"
         # echo "${{toJson(github.actor)}}"
 
-      # - name: install typescript
-      #   run: npm install typescript
+      - name: install typescript
+        run: npm install typescript
 
-      # - name: Pass If Git Add, Commit, Push
-      #   run: |
-      #     git branch
-      #     git config --global user.email "${{ github.actor }}@github.bot"
-      #     git config --global user.name "${{ github.actor }}"
+      - name: Pass If Git Add, Commit, Push
+        run: |
+          git branch
+          git config --global user.email "${{ github.actor }}@github.bot"
+          git config --global user.name "${{ github.actor }}"
 
-      #     git remote add forked "https://${{ github.event }}"
+          git remote add forked "${{ github.event.pull_request.head.repo.clone_url }}"
 
-      #     npx tsc
-      #     git add .
+          npx tsc
+          git add .
 
-      #     if [ "$(git diff --cached --name-only)" ]; then
-      #       echo "Staged changes detected. Committing and pushing..."
-      #       git commit -m "chore: pre-merged compile .ts"
-      #       git push origin main
-      #     else
-      #       echo "No staged status file"
-      #     fi
+          if [ "$(git diff --cached --name-only)" ]; then
+            echo "Staged changes detected. Committing and pushing..."
+            git commit -m "chore: pre-merged compile .ts"
+            git push origin main
+          else
+            echo "No staged status file"
+          fi
