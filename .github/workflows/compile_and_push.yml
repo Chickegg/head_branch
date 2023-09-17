@@ -21,9 +21,6 @@ jobs:
       - name: Print Label
         run: |
           echo "New Labels"
-
-          ${{ github.repositoryUrl }}
-
           echo "${{toJson(github)}}"
           echo "${{github.event.label.name}}"
           echo "${{toJson(github.event.sender.id)}}"
