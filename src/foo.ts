@@ -1,1 +1,1 @@
-const foo = 123;
+const foo = "내가바꾼거야!";
